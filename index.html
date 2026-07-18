@@ -1,111 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>School Street Block Party</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-	<style>
-		body {
-			font-family: 'Roboto', sans-serif;
-			margin: 0;
-			padding: 0;
-			background-color: #f4f4f4;
-			color: #333;
-		}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Street — Cookout &amp; Block Party</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
 
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 20px;
-		}
+  :root{
+    --night: #1C2A32;
+    --night-deep: #131E24;
+    --gold: #F2A93B;
+    --gold-soft: #F6C36B;
+    --cream: #FBF1E4;
+    --ink: #2B2320;
+    --sage: #8FB8A8;
+    --terracotta: #C1552D;
+    --line: rgba(43,35,32,0.12);
+  }
 
-		h1 {
-			text-align: center;
-			font-size: 3rem;
-			color: #ff6f61;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-			margin-bottom: 20px;
-		}
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.55;
+  }
 
-		p {
-			text-align: justify;
-			font-size: 1.2rem;
-			line-height: 1.5;
-		}
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
 
-		.party-details {
-			margin-top: 30px;
-		}
+  /* ---------- HERO ---------- */
+  .hero{
+    background: linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+    color: var(--cream);
+    padding: 4.5rem 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner{
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero .eyebrow{ color: var(--gold-soft); }
+  h1{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    margin: 0.6rem 0 0.8rem;
+    letter-spacing: -0.01em;
+  }
+  .hero p.lede{
+    font-size: 1.1rem;
+    max-width: 46ch;
+    margin: 0 auto;
+    color: rgba(251,241,228,0.82);
+  }
 
-		.party-details p {
-			margin: 5px 0;
-		}
+  .street-scene{
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5rem;
+  }
 
-		.cta-button {
-			display: block;
-			width: 200px;
-			margin: 20px auto;
-			padding: 10px;
-			text-align: center;
-			background-color: #ff6f61;
-			color: #fff;
-			text-decoration: none;
-			border-radius: 5px;
-			font-size: 1.2rem;
-			letter-spacing: 1px;
-			transition: background-color 0.3s ease;
-		}
+  .bulb{ animation: twinkle 3.6s ease-in-out infinite; transform-origin: center; }
+  .bulb.b2{ animation-delay: 0.5s; }
+  .bulb.b3{ animation-delay: 1s; }
+  .bulb.b4{ animation-delay: 1.6s; }
+  .bulb.b5{ animation-delay: 0.3s; }
+  .bulb.b6{ animation-delay: 2.1s; }
+  .bulb.b7{ animation-delay: 1.2s; }
+  @keyframes twinkle{
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bulb{ animation: none; opacity: 0.9; }
+  }
 
-		.cta-button:hover {
-			background-color: #ff4834;
-		}
+  /* ---------- EVENTS ---------- */
+  .events{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 1rem;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  @media (max-width: 720px){
+    .events{ grid-template-columns: 1fr; }
+  }
 
-		.contact-info {
-			margin-top: 20px;
-			text-align: center;
-			font-size: 1rem;
-		}
+  .card{
+    border-radius: 18px;
+    padding: 2rem;
+  }
+  .card.cookout{
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+  .card.block-party{
+    background: var(--night);
+    color: var(--cream);
+  }
+  .card.block-party .eyebrow{ color: var(--gold-soft); }
 
-		.contact-info a {
-			color: #ff6f61;
-			text-decoration: none;
-			font-weight: bold;
-		}
+  .card h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0.4rem 0 0.2rem;
+  }
+  .when{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.95rem;
+    margin: 0.4rem 0 1.2rem;
+    color: var(--terracotta);
+  }
+  .card.block-party .when{ color: var(--gold-soft); }
 
-		.contact-info a:hover {
-			text-decoration: underline;
-		}
-	</style>
+  .card h3{
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    opacity: 0.55;
+    margin: 1.3rem 0 0.5rem;
+  }
+  .card.block-party h3{ color: var(--cream); opacity: 0.6; }
+
+  .menu-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .menu-list li{
+    padding: 0.35rem 0 0.35rem 1.1rem;
+    position: relative;
+    font-size: 0.97rem;
+  }
+  .menu-list li::before{
+    content: "";
+    position: absolute;
+    left: 0; top: 0.65rem;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--terracotta);
+  }
+
+  .note{
+    font-size: 0.95rem;
+    color: rgba(43,35,32,0.75);
+  }
+  .card.block-party .note{ color: rgba(251,241,228,0.78); }
+
+  .rsvp-box{
+    margin-top: 1.6rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--line);
+  }
+  .rsvp-box a{
+    display: inline-block;
+    margin-top: 0.7rem;
+    background: var(--terracotta);
+    color: var(--cream);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.65rem 1.2rem;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .placeholder{
+    background: rgba(193,85,45,0.12);
+    color: var(--terracotta);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-style: italic;
+  }
+  .card.block-party .placeholder{
+    background: rgba(242,169,59,0.18);
+    color: var(--gold-soft);
+  }
+
+  /* ---------- WHY SECTION ---------- */
+  .why{
+    max-width: 640px;
+    margin: 2.5rem auto 0;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .why p{
+    font-size: 1.05rem;
+    color: rgba(43,35,32,0.8);
+  }
+
+  footer{
+    max-width: 920px;
+    margin: 3rem auto 0;
+    padding: 1.6rem 1.5rem 2.5rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: rgba(43,35,32,0.6);
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--terracotta);
+    outline-offset: 2px;
+  }
+</style>
 </head>
-
 <body>
-	<div class="container">
-		<h1>School Street Block Party</h1>
-		<img src="schoolstreet.jpg" alt="School Street" style="display: block; margin: 0 auto; max-width: 100%;">
-		<h1>See you in 2025!</h1>
-		<p>I am looking for a neighbor that is willing to take the lead on organizing Block Party 2025. Please reach
-			out to the email address below or drop by 93 Center if you or someone you know is interested.
-		</p>
-		<div class="party-details">
-			<p><strong>Date:</strong> TBD 2025</p>
-			<p><strong>Time:</strong> TBD</p>
-			<p><strong>Location:</strong> School Street, Metuchen, between Central Ave and Center St</p>
-		</div>
-		<!-- <div class="contact-info">
-			<p>Everyone is welcome to attend, and if you'd also like to contribute, you can use the Signup List</p>
-		</div>
-		<a target="_blank"
-			href="https://docs.google.com/spreadsheets/d/1KuMPKAq8Rlu8BvmcMVDl1K32qwCOZTS1tploKaME8Lo/edit?gid=0#gid=0"
-			class="cta-button">Contribution Signup List</a> -->
-		<p>Any questions or comments? Reach out to us at <a
-				href="info@schoolstreetblockparty.com">info@schoolstreetblockparty.com</a>
-		</p>
-		<img src="map.png" alt="School Street" style="display: block; margin: 0 auto; max-width: 100%;">
-		<p>An inner portion of School Street will be coned off to through traffic for the duration of the party.</p>
-	</div>
-</body>
 
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">School Street &middot; Summer 2026</div>
+    <h1>Two nights to<br>meet the neighbors</h1>
+    <p class="lede">We live twenty feet apart and barely know each other's names. Let's fix that — one backyard cookout, one street-wide block party.</p>
+  </div>
+
+  <svg class="street-scene" viewBox="0 0 900 190" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+    <!-- string of lights -->
+    <path d="M 20 30 Q 130 90 240 35 Q 350 -10 460 35 Q 570 90 680 35 Q 790 -10 880 35"
+          fill="none" stroke="#3d5561" stroke-width="2" opacity="0.6"/>
+    <g fill="#F2A93B">
+      <circle class="bulb b1" cx="70" cy="52" r="5"/>
+      <circle class="bulb b2" cx="180" cy="70" r="5"/>
+      <circle class="bulb b3" cx="290" cy="42" r="5"/>
+      <circle class="bulb b4" cx="400" cy="18" r="5"/>
+      <circle class="bulb b5" cx="510" cy="42" r="5"/>
+      <circle class="bulb b6" cx="620" cy="70" r="5"/>
+      <circle class="bulb b7" cx="730" cy="42" r="5"/>
+      <circle class="bulb b2" cx="840" cy="18" r="5"/>
+    </g>
+    <!-- house row silhouettes -->
+    <g fill="#131E24">
+      <polygon points="0,190 0,140 60,95 120,140 120,190"/>
+      <polygon points="130,190 130,120 210,70 290,120 290,190"/>
+      <polygon points="300,190 300,150 350,115 400,150 400,190"/>
+      <polygon points="410,190 410,110 500,55 590,110 590,190"/>
+      <polygon points="600,190 600,145 655,105 710,145 710,190"/>
+      <polygon points="720,190 720,115 800,65 880,115 880,190"/>
+      <polygon points="880,190 880,150 900,130 900,190"/>
+    </g>
+    <!-- little glowing windows -->
+    <g fill="#F2A93B" opacity="0.85">
+      <rect x="45" y="155" width="10" height="12" rx="1"/>
+      <rect x="195" y="140" width="10" height="12" rx="1"/>
+      <rect x="480" y="130" width="10" height="12" rx="1"/>
+      <rect x="765" y="130" width="10" height="12" rx="1"/>
+    </g>
+  </svg>
+</section>
+
+<section class="events">
+  <div class="card cookout">
+    <div class="eyebrow">Event One</div>
+    <h2>Neighborhood Cookout</h2>
+    <div class="when">Saturday, August 22 &nbsp;&middot;&nbsp; 1:00 PM</div>
+    <p class="note">93 Center St — backyard. An open invitation to everyone on the street. Come and go as you like.</p>
+
+    <h3>On the menu</h3>
+    <ul class="menu-list">
+      <li>Clam bake — clams, mussels, shrimp, lobster, corn, little red potatoes, Italian sausage</li>
+      <li>Cornell chicken off the grill</li>
+      <li>Big salad, bistro-style</li>
+      <li>Sourdough bread &amp; butter</li>
+      <li>Wine to start — BYOB after that</li>
+    </ul>
+
+    <h3>What to bring</h3>
+    <p class="note">Just yourselves. A chair or a dish to share if you'd like, but nothing's required. Kids and pets welcome.</p>
+
+    <div class="rsvp-box">
+      <div class="note">Not required, but it helps with headcount for the clam bake.</div>
+      <a href="mailto:your-email@example.com?subject=Cookout%20RSVP">RSVP by email &rarr;</a>
+    </div>
+  </div>
+
+  <div class="card block-party">
+    <div class="eyebrow">Event Two</div>
+    <h2>Block Party</h2>
+    <div class="when">Saturday, September 12</div>
+    <p class="note">Whether or not you make it to the cookout, this one's for the whole street. More details coming soon.</p>
+
+    <h3>Where</h3>
+    <p class="note"><span class="placeholder">[location — street closure / a shared yard / the cul-de-sac]</span></p>
+
+    <h3>Details</h3>
+    <p class="note">Time, food, and setup plans will be posted here as they're confirmed. Check back closer to the date.</p>
+  </div>
+</section>
+
+<section class="why">
+  <p>We're mostly single-family homes on this street, which makes it easy to live next to someone for years without really knowing them. These two nights are a low-key excuse to change that — no agenda, just food and a reason to stand around outside together.</p>
+</section>
+
+<footer>
+  <span>schoolstreetblockparty.com</span>
+  <span>Hosted by <span class="placeholder">[your name]</span></span>
+</footer>
+
+</body>
 </html>
