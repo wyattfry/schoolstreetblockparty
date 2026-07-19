@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neighborhood Cookout — Flyer</title>
+<style>doc-page:not(:defined){visibility:hidden}</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+  *{ box-sizing: border-box; }
+  body{ margin:0; font-family:'Work Sans', sans-serif; }
+  .sheet{
+    height:100%;
+    background: linear-gradient(180deg, #1C2A32 0%, #131E24 100%);
+    color:#FBF1E4;
+    padding: 0.6in 0.7in;
+    display:flex;
+    flex-direction:column;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13pt;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#F6C36B;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:64pt;
+    line-height:1.02;
+    margin:0.15in 0 0.1in;
+    letter-spacing:-0.01em;
+  }
+  .lede{ font-size:16pt; max-width:6.5in; color:rgba(251,241,228,0.85); margin:0 0 0.35in; }
+  .street{ display:block; width:100%; height:auto; margin: 0 0 0.3in; }
+  .bulb{ fill:#F2A93B; }
+  .facts{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:0.25in 0.5in;
+    background: rgba(251,241,228,0.06);
+    border:1px solid rgba(251,241,228,0.18);
+    border-radius:14px;
+    padding:0.35in 0.4in;
+  }
+  .fact-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5pt;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#F6C36B;
+    margin-bottom:0.05in;
+  }
+  .fact-value{ font-size:15pt; font-weight:500; }
+  .menu{
+    margin-top:0.35in;
+    font-size:13pt;
+    color:rgba(251,241,228,0.85);
+  }
+  .menu b{ color:#F6C36B; font-weight:600; }
+  .rsvp{
+    margin-top:auto;
+    padding-top:0.35in;
+    border-top:1px dashed rgba(251,241,228,0.3);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:0.3in;
+    flex-wrap:wrap;
+  }
+  .rsvp-text{ font-size:13pt; color:rgba(251,241,228,0.85); max-width:3.6in; }
+  .rsvp-contact{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14pt;
+    background:#C1552D;
+    color:#FBF1E4;
+    padding:0.18in 0.3in;
+    border-radius:10px;
+    text-align:center;
+    line-height:1.5;
+  }
+  .also{
+    margin-top:0.3in;
+    font-size:12pt;
+    color:#F6C36B;
+    font-style:italic;
+  }
+</style>
+</head>
+<body>
+<doc-page width="8.5in" height="11in" margin="0">
+  <div class="sheet">
+    <div class="eyebrow">School Street &middot; Summer 2026</div>
+    <h1>Come eat with<br>your neighbors</h1>
+    <p class="lede">We live twenty feet apart and barely know each other's names. Let's fix that over a backyard clam bake.</p>
+
+    <svg class="street" viewBox="0 0 900 130" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 20 25 Q 130 75 240 30 Q 350 -10 460 30 Q 570 75 680 30 Q 790 -10 880 30" fill="none" stroke="#3d5561" stroke-width="2" opacity="0.6"/>
+      <g class="bulb">
+        <circle cx="70" cy="45" r="6"/><circle cx="180" cy="60" r="6"/><circle cx="290" cy="38" r="6"/>
+        <circle cx="400" cy="18" r="6"/><circle cx="510" cy="38" r="6"/><circle cx="620" cy="60" r="6"/>
+        <circle cx="730" cy="38" r="6"/><circle cx="840" cy="18" r="6"/>
+      </g>
+      <g fill="#131E24">
+        <polygon points="0,130 0,90 60,55 120,90 120,130"/>
+        <polygon points="130,130 130,80 210,40 290,80 290,130"/>
+        <polygon points="410,130 410,70 500,25 590,70 590,130"/>
+        <polygon points="720,130 720,75 800,35 880,75 880,130"/>
+      </g>
+    </svg>
+
+    <div class="facts">
+      <div>
+        <div class="fact-label">What</div>
+        <div class="fact-value">Neighborhood cookout — clam bake, Cornell chicken, big salad</div>
+      </div>
+      <div>
+        <div class="fact-label">When</div>
+        <div class="fact-value">Saturday, August 22 &middot; 1:00&nbsp;PM</div>
+      </div>
+      <div>
+        <div class="fact-label">Where</div>
+        <div class="fact-value">93 Center St (backyard)</div>
+      </div>
+      <div>
+        <div class="fact-label">Bring</div>
+        <div class="fact-value">Just yourself — chair or a dish optional. Kids &amp; pets welcome. Wine to start, BYOB after.</div>
+      </div>
+    </div>
+
+    <p class="also">And whether or not you make it — save the date for the whole-street block party, Saturday 9/12 on School Street.</p>
+
+    <div class="rsvp">
+      <p class="rsvp-text">Not required, but it helps with headcount for the clam bake.</p>
+      <div class="rsvp-contact">Text or call Wyatt<br>714-856-5616<br>info@schoolstreetblockparty.com</div>
+    </div>
+  </div>
+</doc-page>
+<script src="doc-page.js"></script>
+</body>
+</html>
